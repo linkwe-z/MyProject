@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: lwzengmvc Maven Webapp
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: 56用3y
+Implementation-Vendor-Id: com.linkwe
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0
+Main-Class: ${start-class}
+
