@@ -11,23 +11,23 @@ import java.sql.SQLException;
  * @Author: zenglw
  * @Date: 2019-01-31
  */
-public class MyExcutor implements Excutor{
+public class MyExcutor implements Excutor {
 
     private MyConfiguration xmlConfiguration = new MyConfiguration();
 
     @Override
     public <T> T query(String sql, Object parameter) {
-        Connection connection=getConnection();
-        ResultSet set =null;
-        PreparedStatement pre =null;
+        Connection connection = getConnection();
+        ResultSet set = null;
+        PreparedStatement pre = null;
         try {
             pre = connection.prepareStatement(sql);
             //设置参数
             pre.setString(1, parameter.toString());
             set = pre.executeQuery();
-            User u=new User();
+            User u = new User();
             //遍历结果集
-            while(set.next()){
+            while (set.next()) {
                 u.setId(set.getString(1));
                 u.setUsername(set.getString(2));
                 u.setPassword(set.getString(3));
@@ -35,16 +35,18 @@ public class MyExcutor implements Excutor{
             return (T) u;
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally{
-            try{
-                if(set!=null){
+        } finally {
+            try {
+                if (set != null) {
                     set.close();
-                }if(pre!=null){
+                }
+                if (pre != null) {
                     pre.close();
-                }if(connection!=null){
+                }
+                if (connection != null) {
                     connection.close();
                 }
-            }catch(Exception e2){
+            } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
@@ -53,7 +55,7 @@ public class MyExcutor implements Excutor{
 
     private Connection getConnection() {
         try {
-            Connection connection =xmlConfiguration.build("config.xml");
+            Connection connection = xmlConfiguration.build("config.xml");
             return connection;
         } catch (Exception e) {
             e.printStackTrace();

@@ -7,5 +7,5 @@ import com.linkwe.bean.User;
  * @Date: 2019-01-31
  */
 public interface UserMapper {
-     User getUserById(String id);
+    User getUserById(String id);
 }
