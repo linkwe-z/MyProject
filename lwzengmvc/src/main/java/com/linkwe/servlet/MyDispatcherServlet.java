@@ -143,6 +143,7 @@ public class MyDispatcherServlet extends HttpServlet {
 
     }
 
+    //packageName = com.linkwe.core
     private void doScanner(String packageName) {
         //把所有的.替换成/
         URL url = this.getClass().getClassLoader().getResource("/" + packageName.replaceAll("\\.", "/"));
@@ -160,6 +161,7 @@ public class MyDispatcherServlet extends HttpServlet {
 
 
     private void doInstance() {
+        //classNames = com.linkwe.core.controller.TestController
         if (classNames.isEmpty()) {
             return;
         }
